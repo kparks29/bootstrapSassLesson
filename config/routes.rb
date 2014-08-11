@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :items
 
+  get 'stores' => 'stores#index'
+  get 'stores/new' => 'stores#new'
+  post 'stores' => 'stores#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

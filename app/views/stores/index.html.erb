@@ -1,0 +1,7 @@
+<% @stores.each do |store| %>
+
+  <%= store.name.capitalize %>
+
+<% end %>
+
+<%= link_to "Create New Store", controller: 'stores', action: 'new' %>
