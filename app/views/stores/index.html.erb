@@ -1,7 +1,13 @@
-<% @stores.each do |store| %>
+<h2>STORES</h2>
+<ul>
+  <% @stores.each do |store| %>
 
-  <%= store.name.capitalize %>
+    <li><%= link_to store.name.capitalize, store %></li>
 
-<% end %>
+  <% end %>
 
-<%= link_to "Create New Store", controller: 'stores', action: 'new' %>
+</ul>
+<hr>
+
+<%= link_to "Add New Store", new_store_path, class: "btn btn-info" %>
+

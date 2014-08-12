@@ -12,13 +12,40 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
 
     if @store.save
-      @stores = Store.all
-      render action: 'index'
+      redirect_to action: 'index'
     else
       render action: 'new'
     end
   end
 
+  def show
+    @store = Store.find(params[:id])
+  end
+
+  def edit
+    @store = Store.find(params[:id])
+  end
+
+  def update
+    @store = Store.find(params[:id])
+
+    if @store.update(store_params)
+      redirect_to action: 'show'
+    else
+      render action: 'edit'
+    end
+
+  end
+
+  def destroy
+    @store = Store.find(params[:id])
+
+    if @store.destroy
+      redirect_to action: 'index'
+    else
+      render action: 'show'
+    end
+  end
 
 
 private
